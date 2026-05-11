@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satwika | Sign Up Premium</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        :root {
+            --deep-navy: #071739;
+            --muted-blue: #4B6382;
+            --silver-blue: #A4B5C4;
+            --light-gray: #CDD5DB;
+            --bronze: #A68868;
+            --champagne: #E3C39D;
+
+            --transition:
+            all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Plus Jakarta Sans', sans-serif;
+        }
+
+        body{
+            height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            background:
+            linear-gradient(
+                135deg,
+                rgba(7,23,57,0.9),
+                rgba(75,99,130,0.6)
+            ),
+
+            url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop');
+
+            background-size:cover;
+            background-position:center;
+
+            overflow:hidden;
+        }
+
+        body::before{
+            content:"";
+
+            position:absolute;
+
+            width:400px;
+            height:400px;
+
+            background:var(--champagne);
+
+            filter:blur(150px);
+
+            border-radius:50%;
+
+            bottom:-100px;
+            right:-100px;
+
+            opacity:0.15;
+        }
+
+        .signup-container{
+            position:relative;
+            z-index:1;
+
+            width:450px;
+
+            padding:45px 40px;
+
+            border-radius:30px;
+
+            backdrop-filter:blur(25px);
+
+            background:rgba(7,23,57,0.75);
+
+            border:1px solid rgba(164,181,196,0.2);
+
+            box-shadow:0 40px 100px rgba(0,0,0,0.6);
+
+            color:white;
+
+            animation:fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .logo{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .logo h1{
+            font-size:38px;
+            letter-spacing:8px;
+            color:var(--champagne);
+        }
+
+        .logo p{
+            margin-top:8px;
+
+            font-size:12px;
+
+            letter-spacing:3px;
+
+            color:var(--silver-blue);
+
+            text-transform:uppercase;
+        }
+
+        .input-group{
+            margin-top:18px;
+        }
+
+        .input-group label{
+            display:block;
+
+            margin-bottom:8px;
+
+            font-size:13px;
+
+            color:var(--light-gray);
+        }
+
+        .input-wrapper{
+            position:relative;
+        }
+
+        .input-wrapper i{
+            position:absolute;
+
+            left:15px;
+            top:50%;
+
+            transform:translateY(-50%);
+
+            color:var(--muted-blue);
+        }
+
+        .input-group input{
+            width:100%;
+
+            padding:15px 15px 15px 45px;
+
+            border:none;
+            outline:none;
+
+            border-radius:12px;
+
+            background:rgba(255,255,255,0.05);
+
+            color:white;
+
+            font-size:14px;
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            transition:var(--transition);
+        }
+
+        .input-group input:focus{
+            border-color:var(--champagne);
+
+            background:rgba(255,255,255,0.08);
+
+            box-shadow:0 0 15px rgba(227,195,157,0.15);
+        }
+
+        .toggle-password{
+            position:absolute;
+
+            right:15px;
+            top:50%;
+
+            transform:translateY(-50%);
+
+            cursor:pointer;
+
+            color:var(--muted-blue);
+        }
+
+        .btn-signup{
+            width:100%;
+
+            margin-top:30px;
+
+            padding:15px;
+
+            border:none;
+
+            border-radius:12px;
+
+            background:
+            linear-gradient(
+                135deg,
+                var(--bronze),
+                var(--champagne)
+            );
+
+            color:var(--deep-navy);
+
+            font-size:16px;
+
+            font-weight:700;
+
+            cursor:pointer;
+
+            transition:var(--transition);
+        }
+
+        .btn-signup:hover{
+            transform:translateY(-3px);
+
+            filter:brightness(1.08);
+
+            box-shadow:0 10px 20px rgba(227,195,157,0.2);
+        }
+
+        .bottom-text{
+            text-align:center;
+
+            margin-top:25px;
+
+            color:var(--silver-blue);
+
+            font-size:14px;
+        }
+
+        .bottom-text a{
+            color:var(--champagne);
+
+            text-decoration:none;
+
+            font-weight:600;
+        }
+
+        .success-message{
+            margin-top:18px;
+
+            text-align:center;
+
+            color:#8dffb1;
+
+            font-size:14px;
+
+            display:none;
+        }
+
+        @media(max-width:480px){
+
+            .signup-container{
+                width:92%;
+                padding:35px 25px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-container">
+
+        <div class="logo">
+            <h1>SATWIKA</h1>
+            <p>Create Your Premium Account</p>
+        </div>
+
+        <form id="signupForm">
+
+            <div class="input-group">
+                <label>Nama Lengkap</label>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="fullname"
+                        placeholder="Masukkan nama lengkap"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="email@satwika.com"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Minimal 6 karakter"
+                        required
+                    >
+
+                    <i class="fa-solid fa-eye toggle-password"
+                    id="togglePassword"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Konfirmasi Password</label>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Ulangi password"
+                        required
+                    >
+                </div>
+            </div>
+
+            <button type="submit" class="btn-signup">
+                Daftar Sekarang
+            </button>
+
+            <div class="success-message" id="successMessage">
+                Akun berhasil dibuat! Mengalihkan ke login...
+            </div>
+
+        </form>
+
+        <div class="bottom-text">
+            Sudah punya akun?
+            <a href="satwika log in.html">Login Sekarang</a>
+        </div>
+
+    </div>
+
+    <script>
+
+        const signupForm =
+        document.getElementById("signupForm");
+
+        const togglePassword =
+        document.getElementById("togglePassword");
+
+        const passwordField =
+        document.getElementById("password");
+
+        const confirmPassword =
+        document.getElementById("confirmPassword");
+
+        const successMessage =
+        document.getElementById("successMessage");
+
+
+        // Show / Hide Password
+        togglePassword.addEventListener("click", function () {
+
+            const type =
+            passwordField.type === "password"
+            ? "text"
+            : "password";
+
+            passwordField.type = type;
+            confirmPassword.type = type;
+
+            this.classList.toggle("fa-eye-slash");
+        });
+
+
+        // Sign Up
+        signupForm.addEventListener("submit", function(e){
+
+            e.preventDefault();
+
+            const fullname =
+            document.getElementById("fullname").value;
+
+            const email =
+            document.getElementById("email").value;
+
+            const password =
+            passwordField.value;
+
+            const confirm =
+            confirmPassword.value;
+
+
+            // Validasi Password
+            if(password.length < 6){
+
+                alert("Password minimal 6 karakter!");
+
+                return;
+            }
+
+            // Cek Konfirmasi Password
+            if(password !== confirm){
+
+                alert("Konfirmasi password tidak cocok!");
+
+                return;
+            }
+
+            // Simpan ke localStorage
+            const userData = {
+                fullname,
+                email,
+                password
+            };
+
+            localStorage.setItem(
+                "satwikaUser",
+                JSON.stringify(userData)
+            );
+
+            successMessage.style.display = "block";
+
+            // Redirect ke login
+            setTimeout(() => {
+
+                window.location.href = "satwika log in.html";
+
+            }, 2000);
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satwika | Login Premium</title>
+
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --deep-navy: #071739;
+            --muted-blue: #4B6382;
+            --silver-blue: #A4B5C4;
+            --light-gray: #CDD5DB;
+            --bronze: #A68868;
+            --champagne: #E3C39D;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Background menggunakan Deep Navy dan overlay gelap */
+            background: 
+                linear-gradient(135deg, rgba(7, 23, 57, 0.9), rgba(75, 99, 130, 0.6)),
+                url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1400&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        /* Dekorasi Cahaya di Background */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--champagne);
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: 0;
+            bottom: -100px;
+            left: -100px;
+            opacity: 0.15;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 1;
+            width: 420px;
+            padding: 50px 40px;
+            border-radius: 30px;
+            backdrop-filter: blur(25px);
+            background: rgba(7, 23, 57, 0.75);
+            border: 1px solid rgba(164, 181, 196, 0.2);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+            color: white;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .logo h1 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: var(--champagne);
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo p {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--silver-blue);
+            margin-top: 8px;
+        }
+
+        .input-group {
+            margin-top: 22px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--light-gray);
+            margin-left: 5px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted-blue);
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid rgba(164, 181, 196, 0.1);
+            border-radius: 12px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--champagne);
+            box-shadow: 0 0 15px rgba(227, 195, 157, 0.1);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--muted-blue);
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--silver-blue);
+        }
+
+        .remember-forgot label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .remember-forgot input[type="checkbox"] {
+            accent-color: var(--bronze);
+        }
+
+        .remember-forgot a {
+            color: var(--champagne);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            margin-top: 35px;
+            border: none;
+            border-radius: 12px;
+            /* Menggunakan Champagne Gold Gradasi */
+            background: linear-gradient(135deg, var(--bronze), var(--champagne));
+            color: var(--deep-navy);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(227, 195, 157, 0.2);
+            filter: brightness(1.1);
+        }
+
+        .bottom-text {
+            text-align:center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: var(--silver-blue);
+        }
+
+        .bottom-text a {
+            color: var(--champagne);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        /* Loader */
+        .loader {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--deep-navy);
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: none;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media(max-width: 480px) {
+            .login-container { width: 92%; padding: 40px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo">
+            <h1>SATWIKA</h1>
+            <p>Authentic Dining Experience</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Email</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="email@satwika.com" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                    <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+                </div>
+            </div>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox"> Ingat Saya
+                </label>
+                <a href="#">Lupa Password?</a>
+            </div>
+
+            <button type="submit" class="btn-login" id="loginBtn">
+                <span>Login</span>
+                <div class="loader" id="loader"></div>
+            </button>
+        </form>
+
+        <div class="bottom-text">
+            Belum punya akun? <a href="signup.html">Daftar Sekarang</a>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const loginBtn = document.getElementById("loginBtn");
+        const loader = document.getElementById("loader");
+        const btnText = loginBtn.querySelector("span");
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordField = document.getElementById("password");
+
+        // Toggle Password
+        togglePassword.addEventListener("click", function() {
+            const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+            passwordField.setAttribute("type", type);
+            this.classList.toggle("fa-eye-slash");
+        });
+
+        // Simulasi Login
+        loginForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            btnText.textContent = "Menghubungkan...";
+            loader.style.display = "block";
+            loginBtn.style.pointerEvents = "none";
+
+            setTimeout(() => {
+                btnText.textContent = "Berhasil!";
+                loader.style.display = "none";
+                loginBtn.style.background = "#A4B5C4"; // Silver blue on success
+                
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 1000);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

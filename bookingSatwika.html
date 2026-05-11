@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant Booking</title>
+
+  <link rel="stylesheet" href="styleSatwika.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="background-blur"></div>
+
+  <section class="booking-section">
+
+    <!-- LEFT CONTENT -->
+    <div class="booking-info">
+
+      <span class="tag">It's Time To Reservation</span>
+
+      <h1>
+        Reservation at <br>
+        Satwika
+      </h1>
+
+      <p>
+        Nikmati pengalaman reservasi restoran yang modern,
+        cepat, dan nyaman untuk momen spesialmu.
+      </p>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="booking-form-container">
+
+      <div class="glass-effect"></div>
+
+      <form class="booking-form" id="bookingForm">
+
+        <h2>Book a Table</h2>
+
+        <div class="input-group">
+          <input type="text" id="name" required>
+          <label>Nama Lengkap</label>
+        </div>
+
+        <div class="input-group">
+          <input type="tel" id="phone" required>
+          <label>Nomor Telepon</label>
+        </div>
+
+        <div class="row">
+
+          <div class="input-group">
+            <input type="date" id="date" required>
+          </div>
+
+          <div class="input-group">
+            <input type="time" id="time" required>
+          </div>
+
+        </div>
+
+        <div class="input-group">
+          
+          <select id="guests" required>
+            <option value="" disabled selected hidden></option>
+            <option value="1">1 orang</option>
+            <option value="2">2 orang</option>
+            <option value="3">3 orang</option>
+            <option value="4">4 orang</option>
+            <option value="5">5 orang</option>
+            <option value="6">6 orang</option>
+            <option value="7">7 orang</option>
+            <option value="8">8 orang</option>
+            <option value="9">9 orang</option>
+            <option value="10">10 orang</option>
+            <option value="11">11+ orang</option>
+          </select>
+
+          <label>Tamu</label>
+
+        </div>
+
+        <div class="input-group">
+          <textarea id="notes" required></textarea>
+          <label>Catatan</label>
+        </div>
+
+        <button type="submit" class="booking-btn">
+          Konfirmasi Reservasi
+        </button>
+
+        <div class="success-message" id="successMessage">
+          Reservasi berhasil ✨
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+
+  <!-- HISTORY -->
+  <section class="history-section">
+
+    <div class="history-header">
+
+      <h2>Status</h2>
+
+    </div>
+
+    <div class="history-container" id="bookingHistory">
+
+      <p class="empty-message">
+        Belum ada riwayat booking
+      </p>
+
+    </div>
+
+  </section>
+
+  <script src="jsSatwika.js"></script>
+
+</body>
+</html>
